@@ -1,0 +1,9 @@
+.min-to-max::after {
+    content: '\21D1';
+    padding-left: 5px;
+}
+
+.max-to-min::after {
+    content: '\21D3';
+    padding-left: 5px;
+}
