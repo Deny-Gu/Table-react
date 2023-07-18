@@ -19,6 +19,8 @@ function App () {
     const [currentPage, setCurrentPage] = useState(1);
     const counterRowPage = 50;
 
+    const [userDataInformation, setUserDataInformation] = useState(1);
+
     useEffect(() => {
         axios.get(url).then((res) => {
             if (res.status === 200) {
@@ -71,7 +73,18 @@ function App () {
             </div>
         </header>
         <main>
-            <Table sortUsers={ (event) => { SortUsers(event, { usersData, setUsersData, copyUsersData}) } } usersData={ arrUsersDataPagination } onLoad/>
+            <Table sortUsers={ (event) => { SortUsers(event, { usersData, setUsersData, copyUsersData}) } } usersData={ arrUsersDataPagination } userDataInformation={userDataInformation} setUserDataInformation={setUserDataInformation}/>
+            <div className="user-information">
+                <p><b>Id:</b> {userDataInformation.id}</p>
+                <p><b>First name:</b> {userDataInformation.firstName}</p>
+                <p><b>Last name:</b> {userDataInformation.lastName}</p>
+                <p><b>Email:</b> {userDataInformation.email}</p>
+                <p><b>Phone:</b> {userDataInformation.phone}</p>
+                <p><b>City:</b> {userDataInformation.city}</p>
+                <p><b>Street address:</b> {userDataInformation.streetAddress}</p>
+                <p><b>Zip:</b> {userDataInformation.zip}</p>
+                <textarea value={userDataInformation.description}></textarea>
+            </div>
         </main>
         <footer>
             <Pagination pages={ arrPages } numCurrentPage={ numCurrentPage }/>
