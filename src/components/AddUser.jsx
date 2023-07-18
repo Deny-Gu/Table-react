@@ -12,7 +12,14 @@ function AddUser  ({ setUsersData, setCopyUsersData, originalUsersData , setOrig
         firstName: '',
         lastName: '',
         email: '',
-        phone: ''
+        phone: '',
+        description: '',
+        address: {
+            city: '',
+            streetAddress: '',
+            zip: ''
+        }
+
     }
 
     user.id = Number(inputId.value);
